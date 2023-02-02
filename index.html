@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Precision Client (1.5.2-beta_0.1.6)</title>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+        content="Precision Client is an instance of Minecraft 1.5.2 that was ported to the web by LAX1DUDE and forked by EtcherFX. This client has custom resource packs and more."
+        name="description" />
+    <meta content="//precisionclient.vercel.app" name="url" />
+    <meta content="EtcherFX" name="author" />
+    <meta content="Precision Client" property="og:title" />
+    <meta content="en-US" property="og:locale" />
+    <meta content="website" property="og:type" />
+    <meta content="//precisionclient.vercel.app" property="og:url" />
+    <meta content="https://media.discordapp.net/attachments/952288902494965811/982106643808550972/unknown.png"
+        property="og:image" />
+    <meta
+        content="Precision Client is an instance of Minecraft 1.5.2 that was ported to the web by LAX1DUDE and forked by EtcherFX. This client has custom resource packs and more."
+        property="og:description" />
+    <script src="classes.js?t=update1" type="text/javascript"></script>
+    <script type="text/javascript">
+        function texture() {
+            var texturechoice = prompt(
+                "Choose a texture pack:\n- Default 1.5 [1.5]\n- Default 1.16 [1.16]\n- Modified 1.16 [M1.16]\n- 1.16 Dark [1.16D]\n- Default 1.17 [1.17]\n- Modified 1.17 [M1.17]\n- 1.17 Dark [1.17D]\n- Tightfault 1.8 [Tight]\n- Miami Private 1.8 [Miami]\n- Ricefault 1.8 [Rice]\n- More coming soon\nTo select a resource pack, enter the characters from inside the brackets below."
+            );
+
+            var texture = "packs/1.5.epk";
+
+            //1.16 packs
+            if (texturechoice == "1.16") {
+                texture = "packs/1.16.epk";
+            } else if (texturechoice == "M1.16" || texturechoice == "m1.16") {
+                texture = "packs/M1.16.epk";
+            } else if (texturechoice == "1.16D" || texturechoice == "1.16d") {
+                texture = "packs/1.16D.epk";
+            }
+
+            //1.17 packs
+            else if (texturechoice == "1.17") {
+                texture = "packs/1.17.epk";
+            } else if (texturechoice == "M1.17" || texturechoice == "m1.17") {
+                texture = "packs/M1.17.epk";
+            } else if (texturechoice == "1.17D" || texturechoice == "1.17d") {
+                texture = "packs/1.17D.epk";
+            }
+
+            //Tightfault
+            else if (texturechoice == "Tight" || texturechoice == "tight") {
+                texture = "packs/Tight.epk";
+            }
+
+            //Ricefault
+            else if (texturechoice == "Rice" || texturechoice == "rice") {
+                texture = "packs/Rice.epk";
+            }
+
+            //Miami Private
+            else if (texturechoice == "Miami" || texturechoice == "miami") {
+                texture = "packs/Miami.Private.epk";
+            }
+            window.addEventListener("load", function () {
+                window.minecraftOpts = [
+                    "game_frame",
+                    texture,
+                    "CgAACQAHc2VydmVycwoAAAAICAAKZm9yY2VkTU9URAAAAQALaGlkZUFkZHJlc3MBCAACaXAAH3dzczovL3dlYi5hc3NwaXhlbC5uZXQvQ0FQaXhlbC8IAARuYW1lAAhBc3NwaXhlbAAIAApmb3JjZWRNT1REAAABAAtoaWRlQWRkcmVzcwEIAAJpcAAdd3NzOi8vbWMucHJpbWl0dC5kZXYvc3Vydml2YWwIAARuYW1lABJQcmltQ3JhZnQgRmFjdGlvbnMACAAKZm9yY2VkTU9URAAAAQALaGlkZUFkZHJlc3MBCAACaXAAG3dzczovL2Flb24tbmV0d29yay5uZXQvYWVvbggABG5hbWUADEFlb24gTmV0d29yawAIAApmb3JjZWRNT1REAAABAAtoaWRlQWRkcmVzcwEIAAJpcAAkd3NzOi8vc2VhbGNyYWZ0LmRkbnMubmV0OjQ0Mi9zZXJ2ZXJzCAAEbmFtZQAJU2VhbGNyYWZ0AAgACmZvcmNlZE1PVEQAAAEAC2hpZGVBZGRyZXNzAQgAAmlwABR3c3M6Ly9tYy5iMnNlcnZlci50awgABG5hbWUACUIyIFNlcnZlcgAIAApmb3JjZWRNT1REAAABAAtoaWRlQWRkcmVzcwEIAAJpcAAfd3NzOi8vcGxheS52YW5pbGxhY3JhZnRzbXAub3JnLwgABG5hbWUADFZhbmlsbGFDcmFmdAAIAApmb3JjZWRNT1REAAABAAtoaWRlQWRkcmVzcwEIAAJpcAAVd3NzOi8vbWVzcy5ldS5vcmcvczEvCAAEbmFtZQAJTWVzc0NyYWZ0AAgACmZvcmNlZE1PVEQAAAEAC2hpZGVBZGRyZXNzAQgAAmlwAB13c3M6Ly9zdXMuc2hobm93aXNub3R0aGV0aS5tZQgABG5hbWUACEF5dW5ib29tAAA=",
+                ];
+                (function () {
+                    var q = window.location.search;
+                    if (typeof q === "string" && q.startsWith("?")) {
+                        q = new URLSearchParams(q);
+                        var s = q.get("server");
+                        if (s) window.minecraftOpts.push(s);
+                    }
+                })();
+                main();
+            });
+        }
+        texture();
+
+    </script>
+</head>
+
+<body id="game_frame" style="margin: 0px; width: 100vw; height: 100vh;"></body>
+
+</html>
